@@ -26,15 +26,15 @@
 		/// The details about the sample OAuth-enabled WCF service that this sample client calls into.
 		/// </summary>
 		private static AuthorizationServerDescription authServerDescription = new AuthorizationServerDescription {
-			TokenEndpoint = new Uri("http://localhost:50172/OAuth/Token"),
-			AuthorizationEndpoint = new Uri("http://localhost:50172/OAuth/Authorize"),
+			TokenEndpoint = new Uri("https://<eccube-hostname>/OAuth2/v0/token"),
+			AuthorizationEndpoint = new Uri("https://<eccube-hostname>/admin/OAuth2/v0/authorize"),
 		};
 
 		/// <summary>
 		/// Initializes static members of the <see cref="SampleWcf2"/> class.
 		/// </summary>
 		static SampleWcf2() {
-			Client = new WebServerClient(authServerDescription, "sampleconsumer", "samplesecret");
+			Client = new WebServerClient(authServerDescription, "<Client ID>", "<Client secret>");
 		}
 
 		/// <summary>

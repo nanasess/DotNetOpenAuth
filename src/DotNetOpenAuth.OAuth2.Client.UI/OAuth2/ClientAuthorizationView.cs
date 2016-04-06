@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="ClientAuthorizationView.cs" company="Outercurve Foundation">
 //     Copyright (c) Outercurve Foundation. All rights reserved.
 // </copyright>
@@ -15,6 +15,7 @@ namespace DotNetOpenAuth.OAuth2 {
 	using System.Text;
 	using System.Threading;
 	using System.Threading.Tasks;
+	using System.Web;
 	using System.Windows.Forms;
 	using DotNetOpenAuth.Messaging;
 
@@ -120,8 +121,8 @@ namespace DotNetOpenAuth.OAuth2 {
 		[SuppressMessage("Microsoft.Security", "CA2122:DoNotIndirectlyExposeMethodsWithLinkDemands", Justification = "It's a new instance we control.")]
 		protected override async void OnLoad(EventArgs e) {
 			base.OnLoad(e);
-
-			Uri authorizationUrl = await this.Client.RequestUserAuthorizationAsync(this.Authorization, implicitResponseType: this.RequestImplicitGrant);
+			string state = System.Web.Security.Membership.GeneratePassword(32, 3);
+			Uri authorizationUrl = await this.Client.RequestUserAuthorizationAsync(this.Authorization, implicitResponseType: this.RequestImplicitGrant, state: state);
 			this.webBrowser1.Navigate(authorizationUrl.AbsoluteUri); // use AbsoluteUri to workaround bug in WebBrowser that calls Uri.ToString instead of Uri.AbsoluteUri leading to escaping errors.
 		}
 

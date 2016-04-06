@@ -57,7 +57,7 @@
 			};
 			this.wcf = new UserAgentClient(authServer, "sampleconsumer", "samplesecret");
 		}
-
+        /*
 		private async void beginAuthorizationButton_Click(object sender, RoutedEventArgs e) {
 			if (string.IsNullOrEmpty(this.google.ConsumerKey)) {
 				MessageBox.Show(this, "You must modify the App.config or OAuthConsumerWpf.exe.config file for this application to include your Google OAuth consumer key first.", "Configuration required", MessageBoxButton.OK, MessageBoxImage.Stop);
@@ -160,7 +160,7 @@
 				MessageBox.Show(this, ex.Message);
 			}
 		}
-
+        */
 		private async void oauth2BeginButton_Click(object sender, RoutedEventArgs e) {
 			var authServer = new DotNetOpenAuth.OAuth2.AuthorizationServerDescription {
 				AuthorizationEndpoint = new Uri(this.oauth2AuthorizationUrlBox.Text),
@@ -174,7 +174,7 @@
 
 				var authorizePopup = new Authorize2(client);
 				authorizePopup.Authorization.Scope.AddRange(OAuthUtilities.SplitScopes(this.oauth2ScopeBox.Text));
-				authorizePopup.Authorization.Callback = new Uri("http://www.microsoft.com/en-us/default.aspx");
+				authorizePopup.Authorization.Callback = new Uri(this.oauth2TokenEndpointBox.Text);
 				authorizePopup.Owner = this;
 				authorizePopup.ClientAuthorizationView.RequestImplicitGrant = this.flowBox.SelectedIndex == 1;
 				bool? result = authorizePopup.ShowDialog();
