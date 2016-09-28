@@ -158,7 +158,7 @@
                     </ComboBox.Items>
                 </ComboBox>
                 <Label Grid.Row="3" TabIndex="207">Resource URL</Label>
-                <TextBox Grid.Row="3" Grid.Column="1" x:Name="oauth2ResourceUrlBox" Text="https://&lt;eccube-hostname&gt;/api/v0/productsauthsample/1" TabIndex="208" />
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="oauth2ResourceUrlBox" Text="https://&lt;eccube-hostname&gt;/api/v0/product/1" TabIndex="208" />
                 <ComboBox Grid.Row="3" Grid.Column="2" x:Name="oauth2ResourceHttpMethodList" SelectedIndex="0" TabIndex="209">
                     <ComboBox.Items>
 						<ComboBoxItem>GET</ComboBoxItem>
@@ -170,7 +170,7 @@
                 <Label Grid.Row="5" TabIndex="212">Client Secret</Label>
                 <TextBox Grid.Row="5" Grid.Column="1" x:Name="oauth2ClientSecretBox" Grid.ColumnSpan="2" Text="&lt;Client secret&gt;" TabIndex="213" />
                 <Label Grid.Row="6" TabIndex="214">Scope</Label>
-                <TextBox Grid.Row="6" Grid.Column="1" x:Name="oauth2ScopeBox" TabIndex="215" Text="read write" />
+                <TextBox Grid.Row="6" Grid.Column="1" x:Name="oauth2ScopeBox" TabIndex="215" Text="product_read product_write" />
                 <Label Grid.Row="7" TabIndex="216">OAuth 2.0 version</Label>
                 <ComboBox Grid.Row="7" Grid.Column="1" SelectedIndex="0" x:Name="oauth2Version" TabIndex="217">
                     <ComboBox.Items>
